@@ -1,0 +1,496 @@
+:root {
+    --white: #e9e9e9;
+    --gray: #333;
+    --blue: #0367a6;
+    --lightblue: #008997;
+    --lightpurple: #590eb4;
+    --button-radius: 0.7rem;
+    --max-width: 100vw;
+    --max-height: 100vh;
+}
+
+body {
+    background-color: var(--white);
+    background: url("../images/blackBackDrop.gif");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-transform: uppercase;
+    margin-left: 10px; /* Add space between the logo and the title */
+    font-size: 1.5rem; /* Adjust font size for visibility */
+}
+
+.dashboard {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    padding: 10px 20px; /* Reduced padding for header */
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+}
+
+.logo-container {
+    display: flex; /* Use flexbox to align logo and title */
+    align-items: center; /* Center items vertically */
+    margin-right: 10px; /* Add some space to the right */
+}
+
+.logo {
+    height: 50px; /* Set height of the logo */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent overflow */
+}
+
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Remove the focus styles that were causing expansion */
+.search-bar input:focus {
+    outline: none; /* Removes the default focus outline */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .icons {
+    margin-left: 20px;
+}
+
+nav .icons i {
+    margin-left: 10px;
+    color: white;
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Optional: Change color on hover */
+nav .icons i:hover {
+    color: var(--lightblue); /* Change this to your preferred hover color */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.thesis-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    margin-top: 20px;
+}
+
+.submit-new {
+    background-color: lightblue; /* Keep original background for submit card */
+    cursor: pointer;
+    grid-column: span 2; /* Make the submit card take up both columns */
+    text-align: center; /* Center text within the card */
+    padding: 20px; /* Ensure padding for aesthetics */
+}
+
+
+/* Cards with hover effects */
+.box {
+    flex: 0 0 auto;
+    width: 250px;
+    min-height: 150px;
+    background-color: #5f7ccb;
+    border-radius: var(--button-radius);
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: 1rem;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05); /* Slightly enlarges the card on hover */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5); /* Adds deeper shadow on hover */
+}
+
+.top-liked-theses {
+    background-color: lightblue;
+}
+
+.thesis1 {
+    background-color: #3a36b4;
+}
+
+.thesis2 {
+    background-color: #5fb5c4;
+}
+
+.thesis3 {
+    background-color: #2ccfc2;
+}
+
+.submit-new {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.submit-new:hover {
+    background-color: #153dae;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .thesis-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .box {
+        min-height: 140px;
+    }
+
+    .search-bar input {
+        width: 300px; /* Smaller search box for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack header elements */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px; /* Padding for header */
+    }
+
+    .logo-container {
+        margin-right: 0; /* No margin on smaller screens */
+        margin-bottom: 5px; /* Reduced margin below logo */
+    }
+
+    .search-bar {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .search-bar input {
+        width: 100%; /* Full width input */
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: flex-start; /* Align nav items to the left */
+        margin-top: 10px; /* Space between search and nav */
+        width: 100%; /* Ensure nav takes full width */
+    }
+
+    nav a {
+        margin: 5px 0; /* Space between nav items */
+    }
+
+    .thesis-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .thesis-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px; /* Reduced padding */
+    }
+
+    .box {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px; /* Reduced margin between cards */
+    }
+}
+
+@media (min-width: 481px) {
+    .thesis-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .box {
+        width: calc(50% - 20px);
+        max-width: 500px;
+        margin-bottom: 20px; /* Keep this for larger screens */
+    }
+}
+
+/* Additional styles to ensure proper layout on iPad */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .thesis-container {
+        padding: 20px;
+    }
+
+    .box {
+        width: calc(50% - 20px);
+        max-width: 400px; /* Slightly smaller max-width for iPad */
+    }
+}
+
+.submit-thesis-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-thesis-btn:hover {
+    background-color: #45a049;
+}
+
+/* Adjust the submit-new box to center the button */
+.box.submit-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .submit-thesis-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Main content styles */
+.dashboard-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.thesis-section {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.thesis-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem; /* Increased font size for prominence */
+    color: #ffffff; /* White color for the text */
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: adds a subtle shadow for better readability */
+}
+
+.thesis-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.thesis-card {
+    flex: 0 0 calc(25% - 1.125rem);
+    max-width: calc(25% - 1.125rem);
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    margin-bottom: 1rem;
+}
+
+.thesis-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.thesis-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.thesis-card .likes {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.thesis-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.preview-btn {
+    background-color: #ecf0f1;
+    color: #34495e;
+}
+
+.preview-btn:hover {
+    background-color: #bdc3c7;
+}
+
+.view-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Scrollbar styles for webkit browsers */
+.thesis-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.thesis-row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.thesis-row::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.thesis-row::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .thesis-card {
+        width: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .thesis-card {
+        flex: 0 0 calc(33.333% - 0.667rem);
+        max-width: calc(33.333% - 0.667rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .thesis-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .thesis-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Specific styles for Pending Review cards */
+.thesis-section:nth-child(2) .thesis-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.thesis-section:nth-child(2) .thesis-card .thesis-actions {
+    justify-content: center;
+    margin-top: auto;
+}
+
+.thesis-section:nth-child(2) .thesis-card .thesis-actions .preview-btn {
+    display: none;
+}
+
+@font-face {
+    font-family: equinox-regular;
+    src: url('../fonts/EquinoxRegular.woff');
+}
+
+.navbar-title {
+    padding-left: 1%;
+    align-items: center;
+    justify-content: center;
+    font-size: 200%; /* Reduced from 250% to 200% */
+    font-family: equinox-regular, sans-serif;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap; /* Prevents wrapping to a new line */
+    overflow: hidden; /* Hides any overflow */
+    text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
+}
