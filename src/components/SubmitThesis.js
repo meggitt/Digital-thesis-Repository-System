@@ -1,59 +1,122 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import '../css/submitThesis.css'
 import SearchNavBar from "./SearchNavBar";
 import'../css/logo.css'
-
+import {IoCloudUpload} from "react-icons/io5";
+import { FaDownload } from "react-icons/fa6";
 import Footer from'./Footer'
 
-const handleFormSubmit = (e) => {
-    e.preventDefault();
-};
+
 
 const SubmitThesis = () =>{
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+    };
+    
+    const [refadvisor, setRefAdvisor] = useState('');
+    const [refthesis, setRefThesis] = useState('');
+    const [revadvisor, setRevAdvisor] = useState('');
+    const [advisor, setAdvisor] = useState('');
+
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/template.docx'; 
+        link.setAttribute('download', 'ThesisTemplate.docx');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    const [uploadedFile, setUploadedFile] = useState(null);
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setUploadedFile(file.name); 
+        }
+    };
+
+
+
     return(
         <div>
             <SearchNavBar/>
 
-            <div className="containerA">
-                    <form className="form" onSubmit={handleFormSubmit}>
-                        <fieldset className='fieldset'>
+            <div className="fcenter">
+                    
+                    <fieldset className='fieldset'>
+                        <legend className='legendA'>
+                        <h2>Submit Thesis</h2>
+                        </legend>
+                        <form action="#" className="submitform" id="forms" onSubmit={handleFormSubmit}>
                             <div className="containerB">
-                                <div className="form-column left">
-                                    <label for="title">Title</label>
-                                    <input type="text" className="text-input" id="title" placeholder="Enter title here" />
-                                    <label for="abstract">Abstract</label>
-                                    <textarea id="abstract" placeholder="Enter abstract here"></textarea>
-                                    <label for="advisors">Referenced Advisors</label>
-                                    <input type="text" id="advisors" className="text-input" placeholder="Enter name of advisors" />
+                                
                                     
-                                    <label for="file-upload" className="upload-template">
-                                        <i className="fa fa-cloud-upload"></i>Upload File (.docx/.pdf)
-                                        <input type="file" id="file-upload" />
-                                    </label>
-                                   
-                                    
-                                </div>
-                                <div className="form-column right">
-                                    <label for="referenced-thesis">Referenced Thesis</label>
-                                    <textarea id="referenced-thesis" placeholder="Enter referenced thesis details"></textarea>
-                                    <button className="download-template">
-                                        <i className="fas fa-download"></i> Download Submitted Thesis
-                                    </button>
-                                    <label for="thesisID">Thesis ID</label>
-                                    <input type="text" id="thesisID" className="text-input" placeholder="Enter Thesis ID" />
-                                    <label for="review-from">Review Requested From</label>
-                                    <input type="text" id="review-from" className="text-input" placeholder="Enter reviewer names" /> 
+                                    <input type="text" className="text-input" id="title" placeholder="Enter Thesis Title here" required/>
+                                    <br/>
+                                    <textarea id="abstract" placeholder="Enter Abstract here"></textarea>
+                                    <br/>
+                                    <select className="inputR" value={refadvisor} onChange={(e) => setRefAdvisor(e.target.value)} required>
+                                        <option value="" disabled>Select Referenced Advisor</option>
+                                        <option value="Advisor1">Advisor 1</option>
+                                        <option value="Advisor2">Advisor 2</option>
+                                        <option value="Advisor3">Advisor 3</option>
+                                    </select>
+                                    <br/>
 
-                                    <button className="submit-button">
-                                        <div className="icons">
-                                            Submit Thesis<i className='fas fa-angle-double-right'></i>
-                                        </div>
+                                    <select className="inputR" value={advisor} onChange={(e) => setAdvisor(e.target.value)} required>
+                                        <option value="" disabled>Select Advisor</option>
+                                        <option value="Advisor1">Advisor 1</option>
+                                        <option value="Advisor2">Advisor 2</option>
+                                        <option value="Advisor3">Advisor 3</option>
+                                    </select>
+                                    <br/>
+
                                     
+                                    <select className="inputR" value={refthesis} onChange={(e) => setRefThesis(e.target.value)} required>
+                                        <option value="" disabled>Select Referenced Thesis</option>
+                                        <option value="Thesis1">Thesis 1</option>
+                                        <option value="Thesis2">Thesis 2</option>
+                                        <option value="Thesis3">Thesis 3</option>
+                                    </select>
+                                    <br/>
+                    
+                                    <button className="button-template" onClick={handleDownload}>
+                                         Download Template &nbsp;<FaDownload/>
                                     </button>
-                                </div>
+
+                                    <br/>
+
+                                    <select className="inputR" value={revadvisor} onChange={(e) => setRevAdvisor(e.target.value)} required>
+                                        <option value="" disabled>Review Requested From</option>
+                                        <option value="Advisor1">Advisor 1</option>
+                                        <option value="Advisor2">Advisor 2</option>
+                                        <option value="Advisor3">Advisor 3</option>
+                                    </select>
+                                    <br/>
+
+ 
+                                    <label for="file-upload" className="button-template">
+                                        <IoCloudUpload/> &nbsp; Upload File (.docx/.pdf)
+                                        <input type="file" id="file-upload" onChange={handleFileChange} accept=".pdf,.docx" required/>
+                                    </label>
+                                    {uploadedFile && (
+                                        <div className="uploaded-file">
+                                            <span>{uploadedFile}</span>
+                                        </div>
+                                    )}
+                                    <br/>
+
+
+                                    <button className="button-85">
+                                            Submit Thesis
+                                    </button>
+                                
                             </div>
-                        </fieldset>
-                    </form>
+                        </form>
+                    </fieldset>
             </div>
             <Footer/>
            

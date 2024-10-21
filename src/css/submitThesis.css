@@ -1,204 +1,67 @@
-@font-face {
-    font-family: equinox-regular;
-    src: url('../fonts/EquinoxRegular.woff');
-}
-
-@font-face {
-    font-family: equinox-bold;
-    src: url('../fonts/EquinoxBold.woff');
-}
-:root {
-    --white: #e9e9e9;
-    --gray: #333;
-    --blue: #0367a6;
-    --lightblue: #008997;
-    --lightpurple: #590eb4;
-    --button-radius: 0.7rem;
-    --max-width: 100vw;
-    --max-height: 100vh;
-}
-html{
-    background: url("../images/blackBackDrop.gif");
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-h1,h2,h3,h4,h5,h6{
-    text-align: center;
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-}
-body {
-    background-color: var(--white);
-    background: url("../images/blackBackDrop.gif");
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
+.fcenter{
     display: flex;
     flex-direction: column;
-}
-
-/* .title {
-    text-transform: uppercase;
-    padding-left: 1%;
-    margin-left: 10px; 
-    font-size: 180%; 
-    white-space: nowrap;
-    font-family: equinox-bold;
-    font-weight: bold;
-} */
-.Title{
-    padding-left: 1%;
-    margin-left: 10px; 
-    font-size: 180%; 
-    white-space: nowrap;
-    font-family: equinox-bold;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-}
-/* .text{
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-
-} */
-
-
-header {
-    color: white;
-    background-color: #000000b3;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px 20px;
-    
-}
-
-
-.logo-container,header {
-    display: flex; /* Use flexbox to align logo and title */
-    align-items: center; /* Center items vertically */
-}
-
-.logo-container{
-    margin-right: 10px;
-    
-}
-
-.color-changing-image{
-    height: 40px; /* Set height of the logo */
-    width: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Prevent overflow */
-    
-}
-img {
-    width: 10%; 
-    height: auto;
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
-
-
-.search-bar {
-    flex-grow: 1;
-    display: flex; /* Set display to flex */
-}
-
-.search-bar input {
-    padding: 8px;
-    border-radius: 20px;
-    border: none;
-    max-width: 400px;
-    transition: width 0.3s ease-in-out; /* Smooth transition for resizing */
-    width: 100%; 
-}
-
-
-
-nav {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    unicode-bidi: isolate;
 }
 
-nav a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: .9rem;
-    margin: 5px 10px;
-    cursor: pointer;
-}
-
-
-
-nav .icons {
-    margin-left: 20px;
-}
-
-nav .icons i {
-    margin-left: 10px;
-    color: white;
-    cursor: pointer; /* Changes cursor to a pointer on hover */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
-
-
-nav .icons i:hover{
-    color: #0c26e5; /* Change this to your preferred hover color */
-}
-
-.containerA{
-    color: white;
-}
 .fieldset{
     background-color: #131313;
     border: 1.5px solid #434343;
     padding: 1% 1% 1%;
     margin-left: 3%;
     margin-right: 3%;
-    margin-top: 2%;
-    margin-bottom: 2%;
     font-size: 100%;
     text-align: justify;
     line-height: 150%;
     border-radius: var(--button-radius);
     color: white;
- }
- 
+    height: max-content;
+    width:80vw;
+    display: flex;
+    align-items: center;
+}
 
-/* Container to hold the form */
+.legendA{
+    width: max-content; 
+    color: white;
+    font-size: 130%;
+    text-align: center;
+    flex-wrap: nowrap; 
+}
+
+.submitform{
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: rgba(18, 18, 18, 0.854);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    flex:1;
+    width: 70%;
+}
+
 .containerB {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #131313; /* Dark background to match your style */
-    color: #c9d1d9; /* Light text */
+    background-color: #131313; 
+    color: #c9d1d9; 
     font-family: Arial, sans-serif;
+    flex-direction: column;
+    width: 100%; /* Ensure it does not overflow */
+    box-sizing: border-box;
 }
 
-/* Each column */
 .form-column {
-    width: 45%; /* Allocate space for each column */
+    width: 45%; 
     display: flex;
     flex-direction: column;
 }
 
 .text-input{
-        /* font-size: 100%;
-        height: auto;
-        border-radius: 1.5rem;
-        color: var(--white);
-        background-color: transparent;
-        box-shadow: inset 2px 2px 5px rgb(71, 75, 148), inset -5px -5px 10px transparent;
-        border: none;
-        padding: 0.9rem 0.9rem;
-        margin: 0.5rem 0;
-        width: 90%; */
-
         font-size: 100%;
         height: auto;
         border-radius: 30px;
@@ -209,24 +72,10 @@ nav .icons i:hover{
         font-size: 100%;
         box-shadow: inset 4px 4px 5px rgb(65, 65, 65);
         color:white;
-    
 }
 
 
 textarea {
-    /* font-size: 100%;
-    height: auto;
-    border-radius: 1.5rem;
-    color: var(--white);
-    background-color: transparent;
-    box-shadow: inset 2px 2px 5px rgb(71, 75, 148), inset -5px -5px 10px transparent;
-    border: none;
-    padding: 0.9rem 0.9rem;
-    margin: 0.5rem 0;
-    width: 90%;
-    resize: vertical; 
-    height: 80px; Default height */
-
     font-size: 100%;
     height: auto;
     border-radius: 30px;
@@ -240,126 +89,98 @@ textarea {
     resize: vertical; 
 }
 
-label {
-    font-size: 15px;
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
 
-/* Download Button */
-.download-template {
-    background-color: #21262d;
-    color: #c9d1d9;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 20px;
-    border-radius: 5px;
+label[for="file-upload"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    padding: 0.6em 2em;
+    width: 100%; 
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-.download-template i {
-    margin-right: 5px;
+.inputR{
+    border-radius: 30px;
+    padding: 2%;
+    border: none;
+    line-height: 150%;
+    background-color: #2b2b2b;
+    font-size: 100%;
+    box-shadow: inset 4px 4px 5px rgb(65, 65, 65);
+    color:white;
+}
+
+.button-template {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background-color: #21262d;
+    cursor: pointer;
+    position: relative;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    width: 100%;
 }
 
 .upload-template{
-    background-color: #21262d;
-    color: #c9d1d9;
-    padding: 10px;
+
+    padding: 0.6em 2em;
     border: none;
-    margin-bottom: 20px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background-color: #21262d;
     cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5%;
-}
-.upload-template i {
-    margin-right: 5px;
+    position: relative;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    width: 100%;
 }
 
 #file-upload{
     display: none;
 }
 
-/* Submit Button */
-.submit-button {
-    background-color: #238636; /* Green for Submit */
-    color: #ffffff;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
+.uploaded-file {
+    font-size: 0.85rem;
+    color: #c9d1d9;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #2b2b2b;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.submit-button i {
-    margin-left: 5px;
+    display: inline-block;
+    width: fit-content;
 }
 
 
+.button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #000000;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 5%;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    width: 100%;
+    
+}
 
-/* Responsive Design for Smaller Screens */
 @media screen and (max-width: 768px) {
     .containerB {
         flex-direction: column;
     }
-
-    .form-column {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
 }
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stack header elements */
-        align-items: flex-start; /* Align items to the left */
-        padding: 10px; /* Padding for header */
-    }
-
-    .logo-container {
-        margin-right: 0; /* No margin on smaller screens */
-        margin-bottom: 5px; /* Reduced margin below logo */
-    }
-
-    .search-bar {
-        width: 100%; /* Full width on smaller screens */
-    }
-
-    .search-bar input {
-        width: 100%; /* Full width input */
-    }
-
-    nav {
-        display: flex;
-        flex-direction: column; /* Stack nav items vertically */
-        align-items: flex-start; /* Align nav items to the left */
-        margin-top: 10px; /* Space between search and nav */
-        width: 100%; /* Ensure nav takes full width */
-    }
-
-    nav a {
-        margin: 5px 0; /* Space between nav items */
-    }
-
-    .thesis-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .box {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 20px;
-    }
-}
-
