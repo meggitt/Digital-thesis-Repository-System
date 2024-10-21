@@ -6,7 +6,7 @@ import'../css/logo.css'
 import {IoCloudUpload} from "react-icons/io5";
 import { FaDownload } from "react-icons/fa6";
 import Footer from'./Footer'
-
+import Select from 'react-select';
 
 
 const SubmitThesis = () =>{
@@ -14,11 +14,71 @@ const SubmitThesis = () =>{
     const handleFormSubmit = (e) => {
         e.preventDefault();
     };
+
+    const customStyles = {
+        control: (provided) => ({
+            ...provided,
+            borderRadius: '30px', 
+            padding: '1%', 
+            border: 'none', 
+            backgroundColor: '#2b2b2b', 
+            boxShadow: 'inset 4px 4px 5px rgb(65, 65, 65)', 
+            color: 'white', 
+            lineHeight: '150%',
+        }),
+        menu: (provided) => ({
+            ...provided,
+            backgroundColor: '#131313', 
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#2b2b2b' : state.isFocused ? '#3f3f3f' : '#131313', // Change option background color
+            color: state.isSelected ? 'white' : 'white',
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            color: 'white', 
+        }),
+        multiValue: (provided) => ({
+            ...provided,
+            backgroundColor: '#2b2b2b', 
+        }),
+        multiValueLabel: (provided) => ({
+            ...provided,
+            color: 'white', 
+        }),
+        multiValueRemove: (provided) => ({
+            ...provided,
+            color: 'white', 
+            ':hover': {
+                backgroundColor: '#ff6347', 
+                color: 'white',
+            },
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            color: '#c9d1d9',
+            textAlign: 'left', 
+            paddingLeft: '10px', 
+        }),
+    };
     
-    const [refadvisor, setRefAdvisor] = useState('');
-    const [refthesis, setRefThesis] = useState('');
-    const [revadvisor, setRevAdvisor] = useState('');
+    
+    const [refadvisor, setRefAdvisor] = useState([]);
+    const [refthesis, setRefThesis] = useState([]);
     const [advisor, setAdvisor] = useState('');
+
+    const handleRefSelectChange = (selectedOptions) => {
+        setRefAdvisor(selectedOptions ? selectedOptions.map(option => option.value) : []);
+      };
+
+    const handleThesisSelectChange = (selectedOptions) => {
+        setRefThesis(selectedOptions ? selectedOptions.map(option => option.value) : []);
+    };
+
+    const handleAdvisorSelectChange = (selectedOptions) => {
+        setAdvisor(selectedOptions ? selectedOptions.map(option => option.value) : []);
+    };
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -58,44 +118,76 @@ const SubmitThesis = () =>{
                                     <br/>
                                     <textarea id="abstract" placeholder="Enter Abstract here"></textarea>
                                     <br/>
-                                    <select className="inputR" value={refadvisor} onChange={(e) => setRefAdvisor(e.target.value)} required>
-                                        <option value="" disabled>Select Referenced Advisor</option>
-                                        <option value="Advisor1">Advisor 1</option>
-                                        <option value="Advisor2">Advisor 2</option>
-                                        <option value="Advisor3">Advisor 3</option>
-                                    </select>
-                                    <br/>
-
-                                    <select className="inputR" value={advisor} onChange={(e) => setAdvisor(e.target.value)} required>
-                                        <option value="" disabled>Select Advisor</option>
-                                        <option value="Advisor1">Advisor 1</option>
-                                        <option value="Advisor2">Advisor 2</option>
-                                        <option value="Advisor3">Advisor 3</option>
-                                    </select>
-                                    <br/>
+                                    
+                                    <Select
+                                            styles={customStyles}
+                                            options={[
+                                            { value: 'Advisor1', label: 'Advisor 1' },
+                                            { value: 'Advisor2', label: 'Advisor 2' },
+                                            { value: 'Advisor3', label: 'Advisor 3' }
+                                            ]}
+                                            isMulti
+                                            onChange={handleRefSelectChange}
+                                            placeholder="Select Referenced Advisor"
+                                            value={[
+                                            { value: 'Advisor1', label: 'Advisor 1' },
+                                            { value: 'Advisor2', label: 'Advisor 2' },
+                                            { value: 'Advisor3', label: 'Advisor 3' }
+                                            ].filter(option => refadvisor.includes(option.value))}
+                                              
+                                        />
+                                        <br />
 
                                     
-                                    <select className="inputR" value={refthesis} onChange={(e) => setRefThesis(e.target.value)} required>
-                                        <option value="" disabled>Select Referenced Thesis</option>
-                                        <option value="Thesis1">Thesis 1</option>
-                                        <option value="Thesis2">Thesis 2</option>
-                                        <option value="Thesis3">Thesis 3</option>
-                                    </select>
-                                    <br/>
+                                        <Select
+                                            styles={customStyles}
+                                            options={[
+                                            { value: 'Thesis1', label: 'Thesis 1' },
+                                            { value: 'Thesis2', label: 'Thesis 2' },
+                                            { value: 'Thesis3', label: 'Thesis 3' }
+                                            ]}
+                                            isMulti
+                                            onChange={handleThesisSelectChange}
+                                            placeholder="Select Referenced Thesis"
+                                            value={[
+                                            { value: 'Thesis1', label: 'Thesis 1' },
+                                            { value: 'Thesis2', label: 'Thesis 2' },
+                                            { value: 'Thesis3', label: 'Thesis 3' }
+                                            ].filter(option => refthesis.includes(option.value))}
+                                           
+                                            
+                                        />
+                                        <br />
+
+                                    
+                                    
                     
                                     <button className="button-template" onClick={handleDownload}>
-                                         Download Template &nbsp;<FaDownload/>
+                                        <FaDownload/>  &nbsp; Download Template
                                     </button>
 
                                     <br/>
 
-                                    <select className="inputR" value={revadvisor} onChange={(e) => setRevAdvisor(e.target.value)} required>
-                                        <option value="" disabled>Review Requested From</option>
-                                        <option value="Advisor1">Advisor 1</option>
-                                        <option value="Advisor2">Advisor 2</option>
-                                        <option value="Advisor3">Advisor 3</option>
-                                    </select>
-                                    <br/>
+                                    <Select
+                                            styles={customStyles}
+                                            options={[
+                                            { value: 'Advisor1', label: 'Advisor 1' },
+                                            { value: 'Advisor2', label: 'Advisor 2' },
+                                            { value: 'Advisor3', label: 'Advisor 3' }
+                                            ]}
+                                            isMulti
+                                            onChange={handleAdvisorSelectChange}
+                                            placeholder="Review Requested From"
+                                            value={[
+                                            { value: 'Advisor1', label: 'Advisor 1' },
+                                            { value: 'Advisor2', label: 'Advisor 2' },
+                                            { value: 'Advisor3', label: 'Advisor 3' }
+                                            ].filter(option => advisor.includes(option.value))}
+                                              
+                                        />
+                                        <br />
+
+                                   
 
  
                                     <label for="file-upload" className="button-template">
