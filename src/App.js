@@ -11,6 +11,9 @@ import StudentThesisPage from './components/StudentThesisPage';
 import DepartmentAdminHomePage from './components/DepartmentAdminHomePage';
 import SuperAdminHomePage from './components/SuperAdminHomePage';
 import SubmitThesis from './components/SubmitThesis';
+import ViewThesis from './components/ViewThesis';
+import Statistics from './components/Statistics';
+import SearchPage from './components/SearchPage';
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +30,9 @@ function App() {
         <Route path="/department-admin" element={<DepartmentAdminHomePage />} />
         <Route path="/super-admin" element={<SuperAdminHomePage />} />
         <Route path="/submit-thesis" element={<SubmitThesis />} />
+        <Route path="/view-thesis" element={<ViewThesis />} />
+        <Route path='/statistics' element={<Statistics />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
   );
