@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/DepartmentHomePage.css';
-import logo from '../images/lo.png';
+import '../css/SearchNavBar.css';
+import { IoHome } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+import Footer from './Footer';
 
 const theses = [
   { title: 'Thesis Name 1', author: 'Author Name 1', likes: 99 },
@@ -39,25 +42,21 @@ function ThesisCard({ title, author, likes, isTrending }) {
 function DepartmentHomePage() {
   return (
     <div className="dashboard">
-      <header>
-        <div className="logo-container">
-          <img src={logo} className="logo" alt="Logo" />
-          <span className="navbar-title">Digital Thesis Repository</span>
+      <div className="searchnavbar">
+        <div className="right-section">
+          <Link to="/" className="logout-icon">
+            <IoLogOutOutline />
+          </Link>
         </div>
-        <div className="search-bar">
-          <input type="text" placeholder="Hinted search text" />
+        <div className="left-section">
+          <img src="images/lo.png" className="color-changing-image" alt="Logo" />
+          <span className="title">Digital Thesis Repository</span>
+          &nbsp;&nbsp;
+          <input type="text" className='inputsn' placeholder="Type to search" />
+          &nbsp;&nbsp;
         </div>
-        <nav>
-          <Link to="/#">Home Page</Link>
-          <Link to="/#">Contact Us</Link>
-          <Link to="/#">About Us</Link>
-          <div className="icons">
-            <i className="fas fa-bell"></i>
-            <i className="fas fa-user"></i>
-            <i className="fas fa-sign-out-alt"></i>
-          </div>
-        </nav>
-      </header>
+
+      </div>
 
       <main className="dashboard-content">
         <section className="thesis-section">
@@ -89,6 +88,8 @@ function DepartmentHomePage() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
