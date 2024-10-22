@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 import React, { useState } from "react";
 import '../css/SearchNavBar.css';
 import { Link } from 'react-router-dom'
@@ -38,18 +39,18 @@ const NavbarWithoutLinks = () => {
                     onChange={handleSearch}
                     onKeyDown={handleKeyDown} // Listen for the Enter key
                 />
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Link to="/statistics" >
                     View Statistics
-                </Link>&nbsp;&nbsp;
+                </Link>&nbsp;&nbsp;&nbsp;&nbsp;
                 <Link to="/" className="picons" >
                     <IoNotificationsCircleOutline />
                 </Link>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Link to="/" className="picons">
                     <CgProfile />
                 </Link>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <Link to="/" className="picons">
                     <IoLogOutOutline />
                 </Link>

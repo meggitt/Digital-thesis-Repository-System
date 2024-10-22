@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 import React, { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/ContactUs.css';
@@ -16,7 +17,7 @@ const ContactUs = () => {
             <div className='fcenter'>
                 <fieldset className='fieldsetAC'>
                     <legend className='legendA'>
-                        <h2>CONTACT US</h2>
+                        <h2>Contact Us</h2>
                     </legend>
                     <form action="#" className="formM" id="form1" onSubmit={handleFormSubmit}>
                         <div className='names'>

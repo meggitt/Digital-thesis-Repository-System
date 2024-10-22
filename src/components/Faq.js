@@ -1,9 +1,11 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 import React, { useState } from 'react';
 import '../css/ContactUs.css';
 import Navbar from './NavBar';
 import Footer from './Footer';
 import '../css/Faq.css';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const Faq = () => {
     const faqData = [
@@ -96,6 +98,7 @@ const Faq = () => {
                             </div>
                         ))}
                     </div>
+                    Still need help? <Link to='/contactUs'>Contact Us here</Link>
                 </fieldset>
             </div>
             <br></br>

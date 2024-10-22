@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 import React, { useState } from "react";
 import '../css/SearchNavBar.css';
 import { Link } from 'react-router-dom'
@@ -6,7 +7,6 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 import { CgProfile } from "react-icons/cg";
 import { IoNotificationsCircleOutline } from "react-icons/io5";
-
 const SearchNavbar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
@@ -46,11 +46,11 @@ const SearchNavbar = () => {
                 <Link to="/statistics" >
                     View Statistics
                 </Link>&nbsp;&nbsp;
-                <Link to="/" className="picons" >
+                <Link to="#" className="picons" >
                     <IoNotificationsCircleOutline />
                 </Link>
                 &nbsp;&nbsp;
-                <Link to="/" className="picons">
+                <Link to="#" className="picons">
                     <CgProfile />
                 </Link>
                 &nbsp;&nbsp;

@@ -1,3 +1,4 @@
+/* File written by: Sharma, Kaustubh, Student ID: 1002138514 */
 import React, { useRef, useEffect, useState } from 'react';
 import '../css/ViewThesis.css';
 import Footer from './Footer';

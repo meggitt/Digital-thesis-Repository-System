@@ -28,11 +28,10 @@ const ResolveInquiry = () => {
                                 <p><strong>Name:</strong> John Doe</p>
                                 <p><strong>ThesisID:</strong> T123</p>
                                 <p><strong>Type of Issue:</strong> Inquiry/Contact </p>
-                                <p><strong>Date of the Issue raised:</strong> 10/20/2024 </p>
-                                <p><strong>User Profile:</strong> John2908 </p>
-                                <p><strong>role:</strong> Visitor </p>
-                                <p><strong>Email:</strong> XYZ@gmail.com</p>
-                                <p><strong>Brief Issue:</strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat </p>
+                                <p><strong>Date of the Issue Raised:</strong> 10/20/2024 </p>
+                                <p><strong>Raised by:</strong> John2908, <strong>&nbsp;Role:</strong> Student </p>
+                                <p><strong>Email:</strong> John.de@gmail.com</p>
+                                <p><strong>Brief Issue:</strong>Not able to raise a re-request</p>
                                 <p><strong>Supporting Documents:</strong> NA</p>
                           
 

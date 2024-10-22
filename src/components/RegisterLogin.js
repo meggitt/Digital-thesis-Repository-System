@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 import React, { useRef, useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import '../css/RegisterLogin.css';
@@ -47,7 +48,9 @@ const RegisterLogin = () => {
             navigate('/dashboard');
         } else if (password === 'visitor') {
             navigate('/visitor');
-        } else if (password === 'departmentadmin') {
+        } else if (password === 'department') {
+            navigate('/department');
+        }else if (password === 'departmentadmin') {
             navigate('/department-admin');
         } else if (password === 'super-admin') {
             navigate('/super-admin');

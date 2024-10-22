@@ -1,10 +1,9 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 .color-changing-image {
     background: url('../images/lo.png');
     animation: colorChange 10s infinite linear;
     margin: 0%;
   }
-
-  /* Keyframes for color transitions */
   @keyframes colorChange {
     0% {
       filter: hue-rotate(0deg);

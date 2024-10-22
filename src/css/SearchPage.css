@@ -1,3 +1,4 @@
+/*File written by: Chagamreddy,Navya Sree, Student ID: 1002197805*/
 .SearchPage-dashboard {
     color: white;
     width: 100%;
@@ -5,9 +6,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    /* Enable vertical scrolling */
     max-width: 100vw;
-    /* Ensure it doesn't exceed the viewport width */
 }
 .SearchTitle{
     text-shadow:1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue ;

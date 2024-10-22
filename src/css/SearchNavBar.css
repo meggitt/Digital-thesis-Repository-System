@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 .searchnavbar {
     position: sticky;
     top: 0;
@@ -71,6 +72,7 @@
     padding-left: 1%;
     padding-right: 1%;
     background-color: white;
+    border-radius: 50%;
 }
 @media screen and (max-width:768px) {
     a{
@@ -84,8 +86,13 @@
         padding-left: 1%;
         padding-right: 1%;
         background-color: white;
+        border-radius: 20px;
     }
-    
+    .searchnavbar .title {
+        display: none;
+         
+      }
+
 }
 @media screen and (max-width:320px) {
     .searchnavbar .title {

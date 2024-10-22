@@ -1,5 +1,5 @@
+/* File written by: Sharma, Kaustubh, Student ID: 1002138514 */
 import React, { useRef, useEffect, useState } from 'react';
-import Navbar from './NavBar';
 import Footer from './Footer';
 import '../css/Statistics.css';
 import thesesData from '../sample-thesis.json';
@@ -110,7 +110,7 @@ function MostLiked() {
         <div className="statistics-dashboard">
             <main className="statistics-dashboard-content">
                 <section className="thesis-section">
-                    <h2>Most Liked</h2>
+                    <h2 className='SearchTitle'>Most Liked</h2>
                     <div className="thesis-row">
                         {mostLikedTheses.map((thesis) => (
                             <ThesisCard

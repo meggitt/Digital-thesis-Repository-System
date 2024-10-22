@@ -1,3 +1,4 @@
+/*File written by: Chagamreddy,Navya Sree, Student ID: 1002197805*/
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../css/SearchPage.css';
@@ -59,7 +60,8 @@ function SPMostRecent() {
                         ))}
                     </div>
                     <div className="pagination-dropdown">
-                        <label htmlFor="page-select">Choose a page:</label>
+                        <br></br>
+                        <label htmlFor="page-select">Choose a page: </label>
                         <select id="page-select" value={currentPage} onChange={handlePageChange}>
                             {[...Array(totalPages).keys()].map(number => (
                                 <option key={number + 1} value={number + 1}>
@@ -117,7 +119,8 @@ function SPMostDownloaded() {
                         ))}
                     </div>
                     <div className="pagination-dropdown">
-                        <label htmlFor="page-select">Choose a page:</label>
+                    <br></br>
+                        <label htmlFor="page-select">Choose a page: </label>
                         <select id="page-select" value={currentPage} onChange={handlePageChange}>
                             {[...Array(totalPages).keys()].map(number => (
                                 <option key={number + 1} value={number + 1}>
@@ -174,7 +177,8 @@ function SPMostLiked() {
                         }
                     </div>
                     <div className="pagination-dropdown">
-                        <label htmlFor="page-select">Choose a page:</label>
+                    <br></br>
+                        <label htmlFor="page-select">Choose a page: </label>
                         <select id="page-select" value={currentPage} onChange={handlePageChange}>
                             {[...Array(totalPages).keys()].map(number => (
                                 <option key={number + 1} value={number + 1}>

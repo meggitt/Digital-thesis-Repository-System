@@ -1,4 +1,6 @@
+/*File written by: Chavda, Yugamsinh Udayansinh Student ID: 1002069171*/
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/DepartmentAdminHomePage.css';
 import NavbarWithoutLinks from './NavbarWithoutLinks';
 import Footer from './Footer';
@@ -40,8 +42,8 @@ function Section({ title, type }) {
                         <div className="button-group" key={item}>
                             <span>{type === 'advisor' ? `Advisor ${item}` : `Student ${item}`}</span>
                             <div>
-                                <button className="action-button">Review Profile</button>
-                                <button className="action-button">Manage Access</button>
+                                <button className="insidebuttons">Review Profile</button>
+                                <button className="insidebuttons">Manage Access</button>
                             </div>
                         </div>
                     ))}
@@ -54,7 +56,7 @@ function Section({ title, type }) {
                         <div className="button-group" key={item}>
                             <span>Thesis {item}</span>
                             <div>
-                                <button className="action-button">Review Thesis</button>
+                                <button className="insidebuttons">Review Thesis</button>
                             </div>
                         </div>
                     ))}
@@ -81,7 +83,7 @@ function InquiryList() {
             <h2 className="section-title">Answer an Inquiry</h2>
             {[201, 202, 203].map((item) => (
                 <div className="button-group" key={item}>
-                    <a href="/">Inquiry {item}</a>
+                    <Link to="/resolve-inquiry">Inquiry {item}</Link>
                 </div>
             ))}
         </div>

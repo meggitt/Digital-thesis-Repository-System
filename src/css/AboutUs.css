@@ -1,3 +1,4 @@
+/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
 @font-face {
     font-family: equinox-regular;
     src: url('../fonts/EquinoxRegular.woff');
@@ -183,6 +184,10 @@ width: 100%;
     color: white;
     font-size: 100%;
 }
+.inputF a:hover{
+    color: blue;
+    font-size: 110%;
+}
 @media screen and (max-width:992px) {
     .navbar .title {
         margin-left: 0%;
@@ -190,7 +195,7 @@ width: 100%;
      }
      .navbar img {
         width: 8%;
-        
+        background: none
     }
     .fieldsetA{
         min-width: 85vw;
@@ -233,6 +238,10 @@ width: 100%;
     .inputF a{
         color: white;
         font-size: 100%;
+    }
+    .inputF a:hover{
+        color: blue;
+        font-size: 110%;
     }
 }
 

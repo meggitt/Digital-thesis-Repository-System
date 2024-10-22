@@ -1,57 +1,43 @@
+/*File written by: Chavda, Yugamsinh Udayansinh Student ID: 1002069171*/
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../css/StudentThesisPage.css';
-import logo from "../images/lo.png";
-import { useNavigate } from 'react-router-dom';
+import SearchNavBar from './SearchNavBar';
+import Footer from './Footer';
 
 const StudentThesisPage = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="dashboard">
-            <header>
-                <div className="logo-container">
-                    <img src={logo} className="logo" alt="Logo" />
-                    <span className="navbar-title">Digital Thesis Repository</span>
-                </div>
-                <div className="search-bar">
-                    <input type="text" placeholder="Hinted search text" />
-                </div>
-                <nav>
-                    <Link to="/">Home Page</Link>
-                    <Link to="/#">Contact Us</Link>
-                    <Link to="/#">About Us</Link>
-                    <div className="icons">
-                        <i className="fas fa-bell"></i>
-                        <i className="fas fa-user"></i>
-                        <i className="fas fa-sign-out-alt"></i>
-                    </div>
-                </nav>
-            </header>
+            <SearchNavBar />
 
-            <main>
-                <div className="grid-container">
-                    <div className="grid-item">
-                        Approved & Unpublished Theses
+            <fieldset className='dashboardfs'>
+                <div className='fieldsetDashboard'>
+                    <div className='blocksDashboard'>
+                        <div className='topLikedThesis'>
+                            <Link to="/student-thesis" className='alink'>Approved and Unpublished Theses</Link>
+                        </div>
+                        <div>
+                            <Link to="/student-thesis" className='alink'>Pending Approval Theses</Link>
+                        </div>
+                        <div>
+                            <Link to="/student-thesis" className='alink'>Approved and Published Theses</Link>
+                        </div>
+                        <div>
+                            <Link to="/student-thesis" className='alink'>Declined Theses</Link>
+                        </div>
+                        <div>
+                            <Link to="/student-thesis" className='alink'>Drafted Theses</Link>
+                        </div>
                     </div>
-                    <div className="grid-item">
-                        Pending Approval Theses
-                    </div>
-                    <div className="grid-item">
-                        Approved & Published Theses
-                    </div>
-                    <div className="grid-item">
-                        Declined Thesis
-                    </div>
-                    <div className="grid-item">
-                        Drafted Theses
+                    <div className='input3'>
+                        <button className="button-85" onClick={() => navigate('/submit-thesis')}>Submit a new thesis</button>
                     </div>
                 </div>
-            </main>
+            </fieldset>
 
-            <section className="submit-section">
-                <button className="submit-thesis-btn">
-                    <i className="fas fa-plus"></i> Submit a New Thesis
-                </button>
-            </section>
+            <Footer />
         </div>
     );
 }
