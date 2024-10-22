@@ -124,3 +124,6 @@ label[for="file-upload"] {
         flex-direction: column;
     }
 }
+.picons:hover{
+    color: blue;
+}

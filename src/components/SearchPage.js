@@ -48,7 +48,7 @@ function SPMostRecent() {
         <div className="statistics-dashboard">
             <main className="statistics-dashboard-content">
                 <section className="thesis-section">
-                    <h2>Most Recent</h2>
+                    <h2 className='SearchTitle'>Most Recent</h2>
                     <div className="thesis-row">
                         {currentTheses.map(thesis => (
                             <ThesisCard
@@ -106,7 +106,7 @@ function SPMostDownloaded() {
         <div className="statistics-dashboard">
             <main className="statistics-dashboard-content">
                 <section className="thesis-section">
-                    <h2>Most Downloaded</h2>
+                    <h2 className='SearchTitle'>Most Downloaded</h2>
                     <div className="thesis-row">
                         {currentTheses.map(thesis => (
                             <ThesisCard
@@ -163,7 +163,7 @@ function SPMostLiked() {
         <div className="statistics-dashboard">
             <main className="statistics-dashboard-content">
                 <section className="thesis-section">
-                    <h2>Most Liked</h2>
+                    <h2 className='SearchTitle'>Most Liked</h2>
                     <div className="thesis-row">
                         {currentTheses.map(thesis => (
                             <ThesisCard

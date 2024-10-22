@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { IoHome } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { CgProfile } from "react-icons/cg";
+import { IoNotificationsCircleOutline } from "react-icons/io5";
 
 const SearchNavbar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,11 +23,6 @@ const SearchNavbar = () => {
     };
     return (
         <div className="searchnavbar">
-            <div className="right-section">
-                <Link to="/" className="logout-icon">
-                    <IoLogOutOutline />
-                </Link>
-            </div>
             <div className="left-section">
                 <img src="images/lo.png" className="color-changing-image" alt="Logo" />
                 <span className="title">Digital Thesis Repository</span>
@@ -44,6 +41,21 @@ const SearchNavbar = () => {
                 &nbsp;&nbsp;
                 <Link to="/student-thesis" >
                     My Theses
+                </Link>
+                &nbsp;&nbsp;
+                <Link to="/statistics" >
+                    View Statistics
+                </Link>&nbsp;&nbsp;
+                <Link to="/" className="picons" >
+                    <IoNotificationsCircleOutline />
+                </Link>
+                &nbsp;&nbsp;
+                <Link to="/" className="picons">
+                    <CgProfile />
+                </Link>
+                &nbsp;&nbsp;
+                <Link to="/" className="picons">
+                    <IoLogOutOutline />
                 </Link>
             </div>
 

@@ -12,35 +12,20 @@
 .searchnavbar img {
     width: 5%;
     
+    
 }
 
 .searchnavbar .title {
     padding-left: 1%;
     align-items: center;
     justify-content: center;
-    font-size: 180%;
+    font-size: 150%;
     font-family: equinox-bold;
     color: white;
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
-.searchnavbar .logout-icon {
-    padding-left: 1%;
-    align-items: center;
-    justify-content: center;
-    font-size: 200%;
-    font-family: equinox-bold;
-    color: white;
-}
-.searchnavbar .logout-icon:hover {
-    color: #2735a3;
-}
-.searchnavbar .right-section{
-    position: absolute;
-    padding-top: 1.5%;
-    margin-left: 94%;
-    color: #131313;
-}
+
 .searchnavbar .left-section{
     padding: 1%;
     display: flex;
@@ -50,7 +35,7 @@
     border-radius: 30px;
     padding: 1%;
     border: none;
-    line-height: 150%;
+    line-height: 100%;
     background-color: #2b2b2b;
     font-size: 100%;
     box-shadow: inset 4px 4px 5px rgb(65, 65, 65);
@@ -75,8 +60,32 @@
         font-size: 50%;
     }
     .inputsn{
-        font-size:60% ;
+        font-size:40% ;
     }
+}
+.picons{
+    font-size: 250%;
+}
+.picons:hover{
+    font-size: 250%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: white;
+}
+@media screen and (max-width:768px) {
+    a{
+        font-size: 80%;
+    }
+    .picons{
+        font-size: 150%;
+    }
+    .picons:hover{
+        font-size: 150%;
+        padding-left: 1%;
+        padding-right: 1%;
+        background-color: white;
+    }
+    
 }
 @media screen and (max-width:320px) {
     .searchnavbar .title {
@@ -87,7 +96,7 @@
         width: 7%;  
     }
     a{
-        font-size: 60%;
+        font-size: 30%;
         color: white;
     }
     .inputsn{
@@ -95,10 +104,15 @@
         padding-left: 2%;
         width: 40%;
     }
-    .searchnavbar .logout-icon{
-        font-size: 100%;
+    .picons{
+
+        font-size: 70%;
     }
-    .searchnavbar .right-section{
-        padding-top: 4%;
+    .picons:hover{
+        font-size: 70%;
+        padding-left: 1%;
+        padding-right: 1%;
+        background-color: white;
     }
+    
 }
