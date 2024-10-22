@@ -3,7 +3,7 @@ import React from 'react';
 import '../css/SuperAdminHomePage.css';
 import NavbarWithoutLinks from './NavbarWithoutLinks';
 import Footer from './Footer';
-
+import {Link} from 'react-router-dom';
 // Main component for the Super Admin Home Page
 function SuperAdminHomePage() {
     return (
@@ -120,7 +120,7 @@ function InquiryList() {
             {[201, 202, 203].map((item) => (
                 <div className="button-group" key={item}>
                     {/* Link to resolve the specific inquiry */}
-                    <a href="/resolve-inquiry">Inquiry {item}</a>
+                    <Link to="/resolve-inquiry">Inquiry {item}</Link>
                 </div>
             ))}
         </div>

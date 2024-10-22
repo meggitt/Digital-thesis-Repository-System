@@ -23,19 +23,19 @@ const Dashboard = () => {
                     <div className='blocksDashboard'>
                         {/* Links for top liked thesis and subscribed keywords */}
                         <div className='topLikedThesis'>
-                            <a href="/" className='alink'>Top Liked Thesis</a> {/* Link to top liked thesis */}
+                            <a href="#" className='alink'>Top Liked Thesis</a> {/* Link to top liked thesis */}
                         </div>
                         <br></br>
                         <div className='subscribedkw1'>
-                            <a href="/" className='alink'>Subscribed Keyword Thesis 1</a> {/* Link for subscribed keyword thesis 1 */}
+                            <a href="#" className='alink'>Subscribed Keyword Thesis 1</a> {/* Link for subscribed keyword thesis 1 */}
                         </div>
                         <br></br>
                         <div className='subscribedkw2'>
-                            <a href="/" className='alink'>Subscribed Keyword Thesis 2</a> {/* Link for subscribed keyword thesis 2 */}
+                            <a href="#" className='alink'>Subscribed Keyword Thesis 2</a> {/* Link for subscribed keyword thesis 2 */}
                         </div>
                         <br></br>
                         <div className='subscribedkw3'>
-                            <a href="/" className='alink'>Subscribed Keyword Thesis 3</a> {/* Link for subscribed keyword thesis 3 */}
+                            <a href="#" className='alink'>Subscribed Keyword Thesis 3</a> {/* Link for subscribed keyword thesis 3 */}
                         </div>
                     </div>
 
