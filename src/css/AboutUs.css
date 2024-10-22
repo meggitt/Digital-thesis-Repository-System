@@ -189,7 +189,7 @@ width: 100%;
         font-size: 120%;   
      }
      .navbar img {
-        width: 8%;
+        width: 10%;
         
     }
     .fieldsetA{
@@ -211,7 +211,7 @@ width: 100%;
     .team-container {
         min-height: max-content;
         grid-template-columns: repeat(1, 1fr);
-        height: 650px;
+        height: 600px;
     }
     .navbar .title{
         font-size: 100%;
