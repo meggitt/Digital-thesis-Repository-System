@@ -1,31 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../css/StudentThesisPage.css';
-import logo from "../images/lo.png";
-import { useNavigate } from 'react-router-dom';
+import '../css/SearchNavBar.css';
+import {Link} from 'react-router-dom'
+import { IoHome } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+import Footer from './Footer';
 
 const StudentThesisPage = () => {
     return (
         <div className="dashboard">
-            <header>
-                <div className="logo-container">
-                    <img src={logo} className="logo" alt="Logo" />
-                    <span className="navbar-title">Digital Thesis Repository</span>
+            <div className="searchnavbar">
+                <div className="right-section">
+                    <Link to="/" className="logout-icon">
+                        <IoLogOutOutline />
+                    </Link>
                 </div>
-                <div className="search-bar">
-                    <input type="text" placeholder="Hinted search text" />
+                <div className="left-section">
+                    <img src="images/lo.png" className="color-changing-image" alt="Logo" />
+                    <span className="title">Digital Thesis Repository</span>
+                    &nbsp;&nbsp;
+                    <input type="text" className='inputsn' placeholder="Type to search" />
+                    &nbsp;&nbsp;
+                    <Link to="/dashboard" >
+                        Home Page
+                    </Link>
                 </div>
-                <nav>
-                    <Link to="/">Home Page</Link>
-                    <Link to="/#">Contact Us</Link>
-                    <Link to="/#">About Us</Link>
-                    <div className="icons">
-                        <i className="fas fa-bell"></i>
-                        <i className="fas fa-user"></i>
-                        <i className="fas fa-sign-out-alt"></i>
-                    </div>
-                </nav>
-            </header>
+
+            </div>
 
             <main>
                 <div className="grid-container">
@@ -52,6 +53,8 @@ const StudentThesisPage = () => {
                     <i className="fas fa-plus"></i> Submit a New Thesis
                 </button>
             </section>
+
+            <Footer />
         </div>
     );
 }

@@ -1,30 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/VisitorHomePage.css';
-import logo from "../images/lo.png";
+import '../css/SearchNavBar.css';
+import { IoHome } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+import Footer from './Footer';
 
 const VisitorHomePage = () => {
+    const linkStyle = {
+        textDecoration: 'none',
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%'
+    };
     return (
         <div className="visitor-home">
-            <header>
-                <div className="logo-container">
-                    <img src={logo} className="logo" alt="Logo" />
-                    <span className="navbar-title">Digital Thesis Repository</span>
+            <div className="searchnavbar">
+                <div className="right-section">
+                    <Link to="/" className="logout-icon">
+                        <IoLogOutOutline />
+                    </Link>
                 </div>
-                <div className="search-bar">
-                    <input type="text" placeholder="Hinted search text" />
+                <div className="left-section">
+                    <img src="images/lo.png" className="color-changing-image" alt="Logo" />
+                    <span className="title">Digital Thesis Repository</span>
+                    &nbsp;&nbsp;
+                    <input type="text" className='inputsn' placeholder="Type to search" />
+                    &nbsp;&nbsp;
+                    <Link to="/visitor" >
+                        Home Page
+                    </Link>
                 </div>
-                <nav>
-                    <Link to="/#">Home Page</Link>
-                    <Link to="/#">Contact Us</Link>
-                    <Link to="/#">About Us</Link>
-                    <div className="icons">
-                        <i className="fas fa-bell"></i>
-                        <i className="fas fa-user"></i>
-                        <i className="fas fa-sign-out-alt"></i>
-                    </div>
-                </nav>
-            </header>
+
+            </div>
 
             <main>
                 <div className="button-container">
@@ -37,11 +48,15 @@ const VisitorHomePage = () => {
                         <span>A guide on using the site</span>
                     </button>
                     <button className="visitor-button">
-                        <i className="fas fa-question-circle"></i>
-                        <span>Frequently Asked Questions</span>
+                        <Link to="/Faq" style={linkStyle}>
+                            <i className="fas fa-question-circle"></i>
+                            <span>Frequently Asked Questions</span>
+                        </Link>
                     </button>
                 </div>
             </main>
+
+            <Footer />
         </div>
     );
 }
