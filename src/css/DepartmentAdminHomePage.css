@@ -113,6 +113,7 @@ main {
     margin: 20px auto;
     padding: 20px;
     border: 2px solid #ffffff;  /* White border */
+    background-color: #131313;
     border-radius: 15px;
 }
 
