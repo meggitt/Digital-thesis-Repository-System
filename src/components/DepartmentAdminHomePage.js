@@ -1,49 +1,50 @@
-/*File written by: Chavda, Yugamsinh Udayansinh Student ID: 1002069171*/
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../css/DepartmentAdminHomePage.css';
-import NavbarWithoutLinks from './NavbarWithoutLinks';
-import Footer from './Footer';
+/* File written by: Chavda, Yugamsinh Udayansinh, Student ID: 100206917171 */
+import React from 'react'; // Importing React to create the component
+import { Link, useNavigate } from 'react-router-dom'; // Importing Link for navigation and useNavigate (not used here)
+import '../css/DepartmentAdminHomePage.css'; // Importing custom CSS for styling
+import NavbarWithoutLinks from './NavbarWithoutLinks'; // Importing a navbar without links for the admin page
+import Footer from './Footer'; // Importing the Footer component
 
+// Main component for the Department Admin Home Page
 function DepartmentAdminHomePage() {
     return (
-        <div className="dashboard">
-            <NavbarWithoutLinks />
+        <div className="dashboard"> {/* Main wrapper for the dashboard */}
+            <NavbarWithoutLinks /> {/* Rendering the NavbarWithoutLinks component */}
 
-            <main>
-                <div className="app-container">
-                    <div className="main-content">
-                        <div className="row">
-                            <Section title="Manage Department Advisors" type="advisor" />
-                            <Section title="Manage Students" type="student" />
+            <main> {/* Main content area */}
+                <div className="app-container"> {/* Container for the app content */}
+                    <div className="main-content"> {/* Main content area */}
+                        <div className="row"> {/* Row for the first set of sections */}
+                            <Section title="Manage Department Advisors" type="advisor" /> {/* Section for managing advisors */}
+                            <Section title="Manage Students" type="student" /> {/* Section for managing students */}
                         </div>
-                        <div className="row">
-
-                            <Section title="Manage Thesis" type="thesis" />
+                        <div className="row"> {/* Row for thesis management */}
+                            <Section title="Manage Thesis" type="thesis" /> {/* Section for managing theses */}
                         </div>
-                        <div className="row last-row">
-                            <InquiryList />
+                        <div className="row last-row"> {/* Last row for inquiries */}
+                            <InquiryList /> {/* Component displaying inquiries */}
                         </div>
                     </div>
                 </div>
             </main>
-            <Footer />
+            <Footer /> {/* Rendering the Footer component */}
         </div>
     );
 }
 
-
+// Functional component to render sections of the admin page
 function Section({ title, type }) {
+    // Function to render the appropriate content based on section type
     const renderContent = () => {
         if (type === 'advisor' || type === 'student') {
             return (
                 <>
-                    {[1, 2, 3].map((item) => (
+                    {[1, 2, 3].map((item) => ( // Mapping through dummy data for advisors and students
                         <div className="button-group" key={item}>
-                            <span>{type === 'advisor' ? `Advisor ${item}` : `Student ${item}`}</span>
+                            <span>{type === 'advisor' ? `Advisor ${item}` : `Student ${item}`}</span> {/* Displaying advisor or student name */}
                             <div>
-                                <button className="insidebuttons">Review Profile</button>
-                                <button className="insidebuttons">Manage Access</button>
+                                <button className="insidebuttons">Review Profile</button> {/* Button to review profile */}
+                                <button className="insidebuttons">Manage Access</button> {/* Button to manage access */}
                             </div>
                         </div>
                     ))}
@@ -52,11 +53,11 @@ function Section({ title, type }) {
         } else if (type === 'thesis') {
             return (
                 <>
-                    {[1, 2, 3].map((item) => (
+                    {[1, 2, 3].map((item) => ( // Mapping through dummy data for theses
                         <div className="button-group" key={item}>
-                            <span>Thesis {item}</span>
+                            <span>Thesis {item}</span> {/* Displaying thesis name */}
                             <div>
-                                <button className="insidebuttons">Review Thesis</button>
+                                <button className="insidebuttons">Review Thesis</button> {/* Button to review thesis */}
                             </div>
                         </div>
                     ))}
@@ -66,28 +67,30 @@ function Section({ title, type }) {
     };
 
     return (
-        <div className="section-container">
-            <h2 className="section-title">{title}</h2>
-            <div className="search-container">
-                <input placeholder="Hinted search text" />
-                <button className="action-button button-85">Search</button>
+        <div className="section-container"> {/* Container for each section */}
+            <h2 className="section-title">{title}</h2> {/* Section title */}
+            <div className="search-container"> {/* Container for search input */}
+                <input placeholder="Hinted search text" /> {/* Search input field */}
+                <button className="action-button button-85">Search</button> {/* Search button */}
             </div>
-            {renderContent()}
+            {renderContent()} {/* Rendering the content based on type */}
         </div>
     );
 }
 
+// Component for displaying inquiries to be answered
 function InquiryList() {
     return (
-        <div className="section-container">
-            <h2 className="section-title">Answer an Inquiry</h2>
-            {[201, 202, 203].map((item) => (
+        <div className="section-container"> {/* Container for the inquiry list */}
+            <h2 className="section-title">Answer an Inquiry</h2> {/* Title for the inquiry section */}
+            {[201, 202, 203].map((item) => ( // Mapping through dummy inquiry data
                 <div className="button-group" key={item}>
-                    <Link to="/resolve-inquiry">Inquiry {item}</Link>
+                    <Link to="/resolve-inquiry">Inquiry {item}</Link> {/* Link to resolve an inquiry */}
                 </div>
             ))}
         </div>
     );
 }
 
+// Exporting the DepartmentAdminHomePage component for use in other parts of the application
 export default DepartmentAdminHomePage;

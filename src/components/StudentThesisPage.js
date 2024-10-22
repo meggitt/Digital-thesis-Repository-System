@@ -1,21 +1,21 @@
-/*File written by: Chavda, Yugamsinh Udayansinh Student ID: 1002069171*/
-import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import '../css/StudentThesisPage.css';
-import SearchNavBar from './SearchNavBar';
-import Footer from './Footer';
+/* File written by: Chavda, Yugamsinh Udayansinh Student ID: 1002069171 */
+import React from 'react'; // Importing React library
+import { useNavigate, Link } from 'react-router-dom'; // Importing hooks and Link from React Router
+import '../css/StudentThesisPage.css'; // Importing CSS for styling the Student Thesis Page
+import SearchNavBar from './SearchNavBar'; // Importing the SearchNavBar component
+import Footer from './Footer'; // Importing the Footer component
 
 const StudentThesisPage = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook to programmatically navigate to different routes
 
     return (
-        <div className="dashboard">
-            <SearchNavBar />
+        <div className="dashboard"> {/* Main dashboard container */}
+            <SearchNavBar /> {/* Render the search navigation bar */}
 
-            <fieldset className='dashboardfs'>
-                <div className='fieldsetDashboard'>
-                    <div className='blocksDashboard'>
-                        <div className='topLikedThesis'>
+            <fieldset className='dashboardfs'> {/* Fieldset for styling */}
+                <div className='fieldsetDashboard'> {/* Dashboard container */}
+                    <div className='blocksDashboard'> {/* Container for thesis links */}
+                        <div className='topLikedThesis'> {/* Section for the first link */}
                             <Link to="/student-thesis" className='alink'>Approved and Unpublished Theses</Link>
                         </div>
                         <div>
@@ -31,15 +31,15 @@ const StudentThesisPage = () => {
                             <Link to="/student-thesis" className='alink'>Drafted Theses</Link>
                         </div>
                     </div>
-                    <div className='input3'>
+                    <div className='input3'> {/* Container for the button */}
                         <button className="button-85" onClick={() => navigate('/submit-thesis')}>Submit a new thesis</button>
                     </div>
                 </div>
             </fieldset>
 
-            <Footer />
+            <Footer /> {/* Render the footer */}
         </div>
     );
 }
 
-export default StudentThesisPage;
+export default StudentThesisPage; // Export the StudentThesisPage component for use in other files

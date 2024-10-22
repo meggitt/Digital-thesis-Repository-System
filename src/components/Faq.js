@@ -1,13 +1,14 @@
-/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
-import React, { useState } from 'react';
-import '../css/ContactUs.css';
-import Navbar from './NavBar';
-import Footer from './Footer';
-import '../css/Faq.css';
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import {Link} from "react-router-dom";
+/* File written by: Chevva, Meghana, Student ID: 1002114458 */
+import React, { useState } from 'react'; // Importing React and useState hook for managing state
+import '../css/ContactUs.css'; // Importing custom CSS for styling the Contact Us page
+import Navbar from './NavBar'; // Importing the Navbar component for navigation
+import Footer from './Footer'; // Importing the Footer component
+import '../css/Faq.css'; // Importing custom CSS for styling the FAQ page
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Importing icons for the FAQ accordion
+import { Link } from "react-router-dom"; // Importing Link for navigation
 
 const Faq = () => {
+    // FAQ data containing questions and answers
     const faqData = [
         {
             question: 'What is the Digital Thesis Repository?',
@@ -63,34 +64,35 @@ const Faq = () => {
         }
     ];
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null); // State to track which FAQ item is open
 
+    // Function to toggle the visibility of the FAQ answer
     const toggleFaq = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
+        setOpenIndex(openIndex === index ? null : index); // Close if already open, open if closed
     };
 
     return (
         <div>
-            <Navbar />
-            <div className='facenter'>
-                <fieldset className='fieldsetA'>
-                    <legend className='legendF'>
+            <Navbar /> {/* Rendering the Navbar */}
+            <div className='facenter'> {/* Centering the FAQ section */}
+                <fieldset className='fieldsetA'> {/* Fieldset for styling */}
+                    <legend className='legendF'> {/* Legend for the fieldset */}
                         <h2>Frequently Asked Questions</h2>
                     </legend>
-                    <div className="faq-container">
+                    <div className="faq-container"> {/* Container for the FAQ items */}
                         {faqData.map((faq, index) => (
                             <div 
                                 key={index} 
-                                className="faq-item"
-                                onClick={() => toggleFaq(index)}
+                                className="faq-item" // Class for each FAQ item
+                                onClick={() => toggleFaq(index)} // Toggle visibility on click
                             >
-                                <div className="faq-question">
+                                <div className="faq-question"> {/* Question section */}
                                     {faq.question}
-                                    <span className="faq-icon">
+                                    <span className="faq-icon"> {/* Icon for toggle */}
                                         {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
                                     </span>
                                 </div>
-                                {openIndex === index && (
+                                {openIndex === index && ( // Conditionally render the answer
                                     <div className="faq-answer">
                                         {faq.answer}
                                     </div>
@@ -98,15 +100,15 @@ const Faq = () => {
                             </div>
                         ))}
                     </div>
-                    Still need help? <Link to='/contactUs'>Contact Us here</Link>
+                    Still need help? <Link to='/contactUs'>Contact Us here</Link> {/* Link to contact page */}
                 </fieldset>
             </div>
             <br></br>
-            <Footer />
+            <Footer /> {/* Rendering the Footer */}
             <br />
             <br />
         </div>
     );
 };
 
-export default Faq;
+export default Faq; // Exporting the Faq component for use in other parts of the application

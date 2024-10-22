@@ -1,10 +1,11 @@
-/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
-import React, { useRef, useEffect, useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
-import '../css/RegisterLogin.css';
-import Footer from './Footer';
+/* File written by: Chevva, Meghana, Student ID: 1002114458 */
+import React, { useRef, useEffect, useState } from 'react'; // Importing React and hooks
+import { Link, useNavigate } from 'react-router-dom'; // Importing Link for navigation and useNavigate for programmatic navigation
+import '../css/RegisterLogin.css'; // Importing CSS for styling the register/login component
+import Footer from './Footer'; // Importing Footer component
 
 const RegisterLogin = () => {
+    // State hooks to manage form inputs and login panel state
     const [isLoginPanelActive, setIsLoginPanelActive] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,13 +14,15 @@ const RegisterLogin = () => {
     const [role, setRole] = useState('');
     const [education, setEducation] = useState('');
 
+    // Refs to manage the active classes for the panels
     const or = useRef(null);
     const ol = useRef(null);
     const rf = useRef(null);
     const lf = useRef(null);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Using the useNavigate hook
 
+    // Effect to toggle between login and signup panels
     useEffect(() => {
         if (isLoginPanelActive) {
             ol.current.classList.add('active');
@@ -34,6 +37,7 @@ const RegisterLogin = () => {
         }
     }, [isLoginPanelActive]);
 
+    // Handlers to switch between sign-in and sign-up forms
     const handleSignIn = () => {
         setIsLoginPanelActive(true);
     };
@@ -42,28 +46,33 @@ const RegisterLogin = () => {
         setIsLoginPanelActive(false);
     };
 
+    // Handler for login form submission
     const handleLoginSubmit = (e) => {
         e.preventDefault();
+        // Simple password-based navigation for demo purposes
         if (password === 'student') {
             navigate('/dashboard');
         } else if (password === 'visitor') {
             navigate('/visitor');
         } else if (password === 'department') {
             navigate('/department');
-        }else if (password === 'departmentadmin') {
+        } else if (password === 'departmentadmin') {
             navigate('/department-admin');
         } else if (password === 'super-admin') {
             navigate('/super-admin');
         } else {
             alert('Incorrect password. Please try again.');
         }
+        // Resetting input fields after submission
         setEmail('');
         setPassword('');
     };
 
+    // Handler for signup form submission
     const handleSignUpSubmit = (e) => {
         e.preventDefault();
         alert(`Registered as ${firstName} ${lastName} with role: ${role} and education: ${education}`);
+        // Resetting input fields after submission
         setFirstName('');
         setLastName('');
         setEmail('');
@@ -74,6 +83,7 @@ const RegisterLogin = () => {
 
     return (
         <div className='container'>
+            {/* Overlay for the sign-in option */}
             <div className="overlayRight" ref={or}>
                 <h1 className='Titlen'>Digital Thesis Repository System</h1>
                 <p className='text'>Already a member?</p>
@@ -84,6 +94,7 @@ const RegisterLogin = () => {
                 <br></br>
             </div>
 
+            {/* Sign-in form */}
             <div className="SignInForm" ref={lf}>
                 <form action="#" className="form" id="form2" onSubmit={handleLoginSubmit}>
                     <fieldset className='fieldsetR'>
@@ -107,18 +118,19 @@ const RegisterLogin = () => {
                             onChange={(e) => setPassword(e.target.value)} 
                             required 
                         />
-                        
-                        <p className='fp'><Link to='/forgotPassword' className='linkfp'>Forgot your password?</Link></p>
-<br></br>
+                        <p className='fp'>
+                            <Link to='/forgotPassword' className='linkfp'>Forgot your password?</Link>
+                        </p>
+                        <br></br>
                         <div className='input3'>
                             <button type="submit" className="button-85">Sign In</button>
                         </div>
                     </fieldset>
                     <Footer />
                 </form>
-                
             </div>
 
+            {/* Sign-up form */}
             <div className="SignUpForm" ref={rf}>
                 <form action="#" className="form" id="form1" onSubmit={handleSignUpSubmit}>
                     <fieldset className='fieldsetR'>
@@ -204,6 +216,7 @@ const RegisterLogin = () => {
                 </form>
             </div>
 
+            {/* Overlay for the sign-up option */}
             <div className="overlayLeft" ref={ol}>
                 <h1 className='Titlen'>Digital Thesis Repository System</h1>
                 <p className='text'>Don't have an account?</p>
@@ -217,4 +230,4 @@ const RegisterLogin = () => {
     );
 };
 
-export default RegisterLogin;
+export default RegisterLogin; // Exporting the RegisterLogin component

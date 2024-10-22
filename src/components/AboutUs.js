@@ -1,18 +1,16 @@
-/*File written by: Chevva,Meghana, Student ID: 1002114458*/ 
-import React, { useRef, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../css/AboutUs.css';
-import '../css/logo.css';
-import { IoHome } from "react-icons/io5";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa6";
-import { FaGlobe } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa6";
-import Navbar from './NavBar';
-import Footer from './Footer';
+/* File written by: Chevva, Meghana, Student ID: 1002114458 */
+import React from 'react'; // Import React to create the component
+import { useNavigate } from 'react-router-dom'; // Hook for navigation between routes
+import '../css/AboutUs.css'; // Import custom CSS for the About Us page
+import '../css/logo.css'; // Import custom CSS for the logo
+import { IoHome } from "react-icons/io5"; // Import home icon from react-icons
+import { FaLinkedin, FaGithub, FaInstagram, FaGlobe, FaEnvelope } from "react-icons/fa"; // Import social media icons from react-icons
+import Navbar from './NavBar'; // Import Navbar component for page header
+import Footer from './Footer'; // Import Footer component for page footer
 
+// Define the AboutUs component
 const AboutUs = () => {
+    // Array of team members with their name and social media links
     const teamMembers = [
         {
             name: 'Meghana Chevva',
@@ -63,13 +61,15 @@ const AboutUs = () => {
             email: 'mailto:kxs8514@mavs.uta.edu'
         }
     ];
+
+    // JSX to render the About Us page content
     return (
         <div>
-            <Navbar />
+            <Navbar /> {/* Renders the navigation bar at the top of the page */}
 
-            <div className='fcenter'>
-                <fieldset className='fieldsetA'>
-                    <legend className='legendA'>
+            <div className='fcenter'> {/* Centralized content container */}
+                <fieldset className='fieldsetA'> {/* Styled box for content */}
+                    <legend className='legendA'> {/* Title for the fieldset */}
                         <h2>ABOUT US</h2>
                     </legend>
                     <p>
@@ -79,41 +79,43 @@ const AboutUs = () => {
                         <br /><br />
                         In addition to enhancing research visibility, we provide statistical insights on the most popular and frequently viewed theses, helping to highlight key trends in various fields of study.
                         <br /><br />
-                        
-                        <h2>Our History</h2>
+
+                        <h2>Our History</h2> {/* History section */}
 
                         The Digital Thesis Repository was established in 2024 by a group of passionate graduate students aiming to create a centralized platform for academic research and collaboration. What started as a small-scale project has evolved into a robust system utilized by students and faculty alike. Over the years, we have continuously improved the platform's features and expanded its reach, making it easier for researchers from all disciplines to store, share, and engage with scholarly work.
 
-                        <h2>Meet The Team</h2>
+                        <h2>Meet The Team</h2> {/* Team section */}
                     </p>
+                    
+                    {/* Loop through the team members array and render each member's name and social links */}
                     <div className='team-container'>
                         {teamMembers.map((member, index) => (
-                            <div className='team-member' key={index}>
-                                <h4>{member.name}</h4>
-                                <div className="social-links">
+                            <div className='team-member' key={index}> {/* Each team member block */}
+                                <h4>{member.name}</h4> {/* Member's name */}
+                                <div className="social-links"> {/* Social links container */}
                                     {member.linkedin && (
                                         <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                                            <FaLinkedin />
+                                            <FaLinkedin /> {/* LinkedIn icon */}
                                         </a>
                                     )}
                                     {member.github && (
                                         <a href={member.github} target="_blank" rel="noopener noreferrer">
-                                            <FaGithub />
+                                            <FaGithub /> {/* GitHub icon */}
                                         </a>
                                     )}
                                     {member.instagram && (
                                         <a href={member.instagram} target="_blank" rel="noopener noreferrer">
-                                            <FaInstagram />
+                                            <FaInstagram /> {/* Instagram icon */}
                                         </a>
                                     )}
                                     {member.website && (
                                         <a href={member.website} target="_blank" rel="noopener noreferrer">
-                                            <FaGlobe />
+                                            <FaGlobe /> {/* Website icon */}
                                         </a>
                                     )}
                                     {member.email && (
                                         <a href={member.email} target="_blank" rel="noopener noreferrer">
-                                            <FaEnvelope />
+                                            <FaEnvelope /> {/* Email icon */}
                                         </a>
                                     )}
                                 </div>
@@ -121,18 +123,18 @@ const AboutUs = () => {
                         ))}
                     </div>
                     <p>
-                        <h2>Who We Are</h2>
+                        <h2>Who We Are</h2> {/* Who We Are section */}
 
                         We are a group of graduate students dedicated to making research more accessible and streamlined for academic communities. Our team consists of tech enthusiasts and aspiring researchers who have come together to build this platform with the goal of fostering academic collaboration. Each of us brings our unique skills to the project, from software development to user experience design, ensuring that the platform is not only functional but also user-friendly. And yes, we're all working hard to ace this project while contributing something meaningful to the academic world!
                         <br></br>
-
                     </p>
                 </fieldset>
             </div>
-            <Footer />
+            <Footer /> {/* Renders the footer at the bottom of the page */}
             <br></br>
             <br></br>
         </div>
     );
 };
-export default AboutUs;
+
+export default AboutUs; // Export the AboutUs component so it can be used in other parts of the app
