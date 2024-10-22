@@ -6,9 +6,9 @@ const SearchNavbar = () => {
     return (
         <div className="searchnavbar">
             <div className="right-section">
-                    <a href="https://mxc4458.uta.cloud" className="logout-icon">
+                    <Link to="/" className="logout-icon">
                     <IoLogOutOutline/>
-                    </a>
+                    </Link>
                 </div>
             <div className="left-section">
                 <img src="images/lo.png" className="color-changing-image" alt="Logo" />
