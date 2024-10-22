@@ -1,243 +1,62 @@
-:root {
-    --white: #e9e9e9;
-    --gray: #333;
-    --blue: #0367a6;
-    --lightblue: #008997;
-    --lightpurple: #590eb4;
-    --button-radius: 0.7rem;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    background-color: var(--white);
-    background: url("../images/blackBackDrop.gif");
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.fieldsetDashboard {
     display: flex;
     flex-direction: column;
-}
-
-.dashboard {
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    flex-wrap: wrap;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 40px;
-    width: auto;
-}
-
-.title {
-    margin-left: 10px;
-    font-size: 1.2rem;
-    white-space: nowrap;
-}
-
-.search-bar {
-    flex-grow: 1;
-    display: flex;
     justify-content: center;
-    margin: 10px 0;
+    padding: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    
+    flex-wrap: nowrap;
+}
+.dashboardfs{
+    background-color: #131313;
 }
 
-.search-bar input {
+.blocksDashboard {
     width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    border-radius: 20px;
-    border: none;
-}
-
-nav {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-nav a {
-    margin: 5px 10px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-nav .icons {
-    display: flex;
-}
-
-nav .icons i {
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    overflow-x: auto;
+    padding: 10px 10px;
+    margin-bottom: 20px;
     gap: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 30px;
 }
 
-.grid-item {
-    background-color: rgba(41, 128, 185, 0.7);
-    border-radius: var(--button-radius);
-    padding: 15px;
+.blocksDashboard > div {
+    flex: 0 0 auto;
+    width: 200px;
+    min-width: 200px;
     text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(69, 69, 69);
+    box-shadow: inset 2px 2px 5px rgb(137, 137, 137), inset -2px -2px 5px rgb(58, 58, 58);
+}
+
+.topLikedThesis{
+    background-color: blue;
+}
+.alink{
     color: white;
-    font-size: 0.85rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    cursor: pointer;
-    aspect-ratio: 1 / 1;
 }
 
-.grid-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgba(100, 100, 100, 0.8);
-}
-
-.grid-item:nth-child(1) { background-color: rgba(41, 128, 185, 1); }
-.grid-item:nth-child(2) { background-color: rgba(39, 174, 96, 1); }
-.grid-item:nth-child(3) { background-color: rgba(192, 57, 43, 1); }
-.grid-item:nth-child(4) { background-color: rgba(142, 68, 173, 1); }
-.grid-item:nth-child(5) { background-color: rgba(243, 156, 18, 1); }
-.grid-item:nth-child(6) { background-color: rgba(44, 62, 80, 1); }
-
-.submit-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.submit-thesis-btn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-.submit-thesis-btn i {
-    margin-right: 8px;
-}
-
-.submit-thesis-btn:hover {
-    background-color: #45a049;
-}
-
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: stretch;
+@media screen and (max-width: 768px) {
+    .blocksDashboard {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* For Firefox */
+        -ms-overflow-style: none;  /* For Internet Explorer and Edge */
     }
 
-    .logo-container {
-        justify-content: center;
-        margin-bottom: 10px;
+    .blocksDashboard::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
     }
 
-    nav {
-        justify-content: center;
+    .blocksDashboard > div {
+        flex: 0 0 auto;
     }
-
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 400px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 1rem;
-    }
-
-    nav a {
-        font-size: 0.8rem;
-    }
-
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 300px;
-    }
-
-    .grid-item {
-        font-size: 0.75rem;
-        padding: 10px;
-    }
-
-    .submit-thesis-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-}
-
-@font-face {
-    font-family: equinox-regular;
-    src: url('../fonts/EquinoxRegular.woff');
-}
-
-.navbar-title {
-    padding-left: 1%;
-    align-items: center;
-    justify-content: center;
-    font-size: 200%; /* Reduced from 250% to 200% */
-    font-family: equinox-regular, sans-serif;
-    font-weight: bold;
-    color: white;
-    white-space: nowrap; /* Prevents wrapping to a new line */
-    overflow: hidden; /* Hides any overflow */
-    text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
 }
