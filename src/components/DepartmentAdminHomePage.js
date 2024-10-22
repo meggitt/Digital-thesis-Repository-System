@@ -1,29 +1,12 @@
 import React from 'react';
 import '../css/DepartmentAdminHomePage.css';
-import logo from "../images/lo.png";
+import NavbarWithoutLinks from './NavbarWithoutLinks';
+import Footer from './Footer';
 
 function DepartmentAdminHomePage() {
     return (
         <div className="dashboard">
-            <header>
-                <div className="logo-container">
-                    <img src={logo} className="logo" alt="Logo" />
-                    <span className="navbar-title">Digital Thesis Repository</span>
-                </div>
-                <div className="search-bar">
-                    <input type="text" placeholder="Hinted search text" />
-                </div>
-                <nav>
-                    <a href="/#">Home Page</a>
-                    <a href="/#">Contact Us</a>
-                    <a href="/#">About Us</a>
-                    <div className="icons">
-                        <i className="fas fa-bell"></i>
-                        <i className="fas fa-user"></i>
-                        <i className="fas fa-sign-out-alt"></i>
-                    </div>
-                </nav>
-            </header>
+            <NavbarWithoutLinks />
 
             <main>
                 <div className="app-container">
@@ -42,6 +25,7 @@ function DepartmentAdminHomePage() {
                     </div>
                 </div>
             </main>
+            <Footer />
         </div>
     );
 }
@@ -84,7 +68,7 @@ function Section({ title, type }) {
             <h2 className="section-title">{title}</h2>
             <div className="search-container">
                 <input placeholder="Hinted search text" />
-                <button className="action-button">Search</button>
+                <button className="action-button button-85">Search</button>
             </div>
             {renderContent()}
         </div>

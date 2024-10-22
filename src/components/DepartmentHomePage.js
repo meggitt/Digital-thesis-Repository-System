@@ -1,96 +1,94 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import '../css/DepartmentHomePage.css';
-import logo from '../images/lo.png';
+import thesesData from '../sample-thesis.json';
+import ThesisCard from './ThesisCard';
+import Footer from './Footer';
+import NavbarWithoutLinks from './NavbarWithoutLinks';
 
-const theses = [
-  { title: 'Thesis Name 1', author: 'Author Name 1', likes: 99 },
-  { title: 'Thesis Name 2', author: 'Author Name 2', likes: 85 },
-  { title: 'Thesis Name 3', author: 'Author Name 3', likes: 120 },
-  { title: 'Thesis Name 4', author: 'Author Name 4', likes: 75 },
-];
+function filterTheses(searchTerm) {
+    return thesesData.filter(thesis =>
+        thesis.title.toLowerCase().includes(searchTerm) ||
+        thesis.authors.toLowerCase().includes(searchTerm) ||
+        thesis.publishedBy.toLowerCase().includes(searchTerm) ||
+        thesis.uploadDate.includes(searchTerm) ||
+        thesis.keywords.toLowerCase().includes(searchTerm)
+    );
+}
 
-const pendingTheses = [
-  { title: 'Pending Thesis 1', author: 'Author Name 5' },
-  { title: 'Pending Thesis 2', author: 'Author Name 6' },
-  { title: 'Pending Thesis 3', author: 'Author Name 7' },
-];
 
-function ThesisCard({ title, author, likes, isTrending }) {
-  return (
-    <div className="thesis-card">
-      <h3>{title}</h3>
-      <p>{isTrending ? `Published by: ${author}` : `Author: ${author}`}</p>
-      {isTrending && <p className="likes">{likes} Likes</p>}
-      <div className="thesis-actions">
-        {isTrending ? (
-          <>
-            <button className="btn preview-btn">Preview</button>
-            <button className="btn view-btn">View</button>
-          </>
-        ) : (
-          <button className="btn view-btn">View</button>
-        )}
-      </div>
-    </div>
-  );
+function TrendingThesis() {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchTerm = queryParams.get('query')?.toLowerCase() || '';
+
+    // Filter and sort theses based on number of downloads
+    const filteredSortedTheses = filterTheses(searchTerm)
+        .sort((a, b) => b.numberOfDownloads - a.numberOfDownloads)
+        .slice(0, 4); // Only take the first 4 theses
+
+    return (
+        <div className="statistics-dashboard">
+            <main className="statistics-dashboard-content">
+                <section className="thesis-section">
+                    <h2 className='SearchTitle'>Trending Thesis</h2>
+                    <div className="thesis-row">
+                        {filteredSortedTheses.map(thesis => (
+                            <div key={thesis.id} className="thesis-card-wrapper">
+                                <ThesisCard
+                                    thesis={thesis}
+                                    isTrending={true}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
+}
+
+
+function PendingReview() {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const searchTerm = queryParams.get('query')?.toLowerCase() || '';
+
+    // Filter and sort theses based on number of likes
+    const filteredSortedTheses = filterTheses(searchTerm)
+        .sort((a, b) => b.numberOfLikes - a.numberOfLikes)
+        .slice(0, 4); // Only take the first 4 theses
+
+    return (
+        <div className="statistics-dashboard">
+            <main className="statistics-dashboard-content">
+                <section className="thesis-section">
+                    <h2 className='SearchTitle'>Pending Review</h2>
+                    <div className="thesis-row">
+                        {filteredSortedTheses.map(thesis => (
+                            <ThesisCard
+                                key={thesis.id}
+                                thesis={thesis}
+                                isTrending={true}
+                            />
+                        ))}
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
 }
 
 function DepartmentHomePage() {
-  return (
-    <div className="dashboard">
-      <header>
-        <div className="logo-container">
-          <img src={logo} className="logo" alt="Logo" />
-          <span className="navbar-title">Digital Thesis Repository</span>
+    return (
+        <div>
+            <NavbarWithoutLinks />
+            <br></br>
+            <TrendingThesis />
+            <PendingReview /> 
+            <br></br>
+            <Footer />
         </div>
-        <div className="search-bar">
-          <input type="text" placeholder="Hinted search text" />
-        </div>
-        <nav>
-          <Link to="/#">Home Page</Link>
-          <Link to="/#">Contact Us</Link>
-          <Link to="/#">About Us</Link>
-          <div className="icons">
-            <i className="fas fa-bell"></i>
-            <i className="fas fa-user"></i>
-            <i className="fas fa-sign-out-alt"></i>
-          </div>
-        </nav>
-      </header>
-
-      <main className="dashboard-content">
-        <section className="thesis-section">
-          <h2>Trending Theses</h2>
-          <div className="thesis-row">
-            {theses.map((thesis, index) => (
-              <ThesisCard
-                key={index}
-                title={thesis.title}
-                author={thesis.author}
-                likes={thesis.likes}
-                isTrending={true}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section className="thesis-section">
-          <h2>Pending Review</h2>
-          <div className="thesis-row">
-            {pendingTheses.map((thesis, index) => (
-              <ThesisCard
-                key={index}
-                title={thesis.title}
-                author={thesis.author}
-                isTrending={false}
-              />
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
-  );
+    );
 }
-
 export default DepartmentHomePage;
