@@ -14,6 +14,7 @@ import SubmitThesis from './components/SubmitThesis';
 import ViewThesis from './components/ViewThesis';
 import Statistics from './components/Statistics';
 import SearchPage from './components/SearchPage';
+import ResolveInquiry from './components/ResolveInquiry';
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ function App() {
         <Route path="/view-thesis" element={<ViewThesis />} />
         <Route path='/statistics' element={<Statistics />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/resolve-inquiry" element={<ResolveInquiry />} />
       </Routes>
     </BrowserRouter>
   );
