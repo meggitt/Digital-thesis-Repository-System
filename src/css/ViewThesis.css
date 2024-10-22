@@ -322,7 +322,6 @@
 
     .Thesis-container {
         flex-direction: column;
-        overflow-x: auto;
     }
 
     .sidebar {
