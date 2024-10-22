@@ -322,6 +322,7 @@
 
     .Thesis-container {
         flex-direction: column;
+        
     }
 
     .sidebar {
@@ -347,4 +348,12 @@
     .thesis-content {
         padding: 10px;
     }
+
+}
+@media screen and (max-width:320px) {
+    .tabs{
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
