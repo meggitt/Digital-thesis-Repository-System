@@ -1,5 +1,5 @@
+/*File written by: Venkata Sri Dheeraj Chintapalli, Student Id: 1002111350*/
 import React, { useState } from 'react';
-
 import '../css/submitThesis.css'
 import SearchNavBar from "./SearchNavBar";
 import '../css/logo.css'
