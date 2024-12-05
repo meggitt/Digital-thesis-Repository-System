@@ -1,0 +1,191 @@
+.advance-search-container-filter {
+  display: flex;
+  /* height: calc(100vh - 60px);  */
+  height: max-content;
+  overflow: hidden;
+  overflow-y: hidden;
+  background-color: #131313;
+  border-color: #434343;
+  border-style: solid;
+}
+   /*scroll*/
+  /* Container for the sidebar and search results */
+  .advance-search-container {
+    display: flex;
+    /* height: 500px;  */
+    overflow-y: auto;
+  }
+  
+ 
+  .sidebar-search {
+    background-color: #131313;
+    overflow-x: hidden;
+   
+    padding: 20px;
+    font-size: 1rem;
+    color: white;
+    width: 25%;
+    border-radius: var(--button-radius);
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    overflow-y: auto;
+}
+  .collapsible-section {
+    margin-bottom: 15px;
+  }
+  
+  .collapsible-button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .collapsible-content {
+    padding-left: 15px;
+    padding-top: 10px;
+  }
+  
+  .collapsible-content label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Search results styling */
+  .search-results {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(18, 18, 18, 0.854); /* Same as sidebar */
+    color: white;
+    overflow-y: auto;
+  }
+  
+  .search-results h4 {
+    margin-bottom: 15px;
+  }
+  
+  .search-results p {
+    margin-top: 10px;
+  }
+  /* Styling for checkboxes with labels aligned to the right */
+.collapsible-content div {
+    display: flex;
+    align-items: center; /* Vertically aligns the checkbox with the text */
+    margin-bottom: 10px; /* Adds spacing between options */
+  }
+  
+  .collapsible-content input[type="checkbox"] {
+    margin-right: 10px; /* Adds space between checkbox and text */
+  }
+  
+  .collapsible-content label {
+    display: inline-block; /* Ensures text stays inline with the checkbox */
+  }
+/* Container for thesis cards */
+.thesis-row-advance-search{
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if they don't fit */
+    gap: 20px; /* Adds space between cards */
+    justify-content: flex-start; /* Align cards to the left */
+    margin-bottom: 50px;
+    
+  }
+  
+ 
+/* Container for thesis cards */
+.thesis-row-advance-search{
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    gap: 20px; /* Adds space between cards */
+    justify-content: flex-start; /* Aligns cards to the left */
+  }
+  
+ 
+.advance-search-results {
+
+  position: relative; /* Ensures that child elements like pagination can be positioned */
+  padding-bottom: 50px; /* Add padding for pagination */
+  background-color: rgba(18, 18, 18);
+  color: white;
+  width: 100%;
+border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+  padding-bottom: 5%;
+  padding: 1%;
+  padding-left: 10%;
+  height: max-content;
+  
+}
+
+
+.paginationbutton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.paginationbutton.active {
+  background-color: #383838;
+  color: white;
+  font-weight: bold;
+}
+
+.paginationbutton:hover:not(.active) {
+  background-color: #484848;
+  color: white;
+  border: 1px solid white;
+}
+/* Pagination container positioning */
+.pagination-controls {
+  position: relative; /* Position relative to the parent container */
+  bottom: 10px; /* Move to 10px above the bottom of the container */
+  width: 100%; /* Full width to center the controls */
+  text-align: center; /* Center the controls horizontally */
+}
+/* Add this to your CSS file */
+@media (max-width: 768px) {
+  .advance-search-container-filter {
+    flex-direction: column; /* Stack sidebar and results vertically */
+    height: auto; /* Allow content to expand dynamically */
+  }
+
+  .sidebar-search {
+    width: 100%; /* Full width for smaller screens */
+    margin-bottom: 20px; /* Add spacing below sidebar */
+  }
+
+  .thesis-row-advance-search {
+    justify-content: center; /* Center thesis cards on mobile */
+  }
+
+  .pagination-controls {
+    flex-direction: column; /* Stack pagination controls vertically */
+    align-items: center;
+    gap: 5px; /* Smaller gap for better alignment */
+  }
+
+  .pagination-controls span {
+    font-size: 14px; /* Smaller text size for pagination info */
+  }
+}
+
+.clear-filters-button{
+    display: block;
+    margin: 0px auto 10px;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
